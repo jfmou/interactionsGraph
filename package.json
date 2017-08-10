@@ -1,10 +1,11 @@
 {
-  "name": "discogs-graph",
+  "name": "interactions-graph",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +13,14 @@
     "csv-parse": "^1.2.1",
     "express": "^4.15.3",
     "fs": "0.0.1-security"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfmou/interactionsGraph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jfmou/interactionsGraph/issues"
+  },
+  "homepage": "https://github.com/jfmou/interactionsGraph#readme"
 }
