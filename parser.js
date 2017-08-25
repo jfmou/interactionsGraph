@@ -26,7 +26,7 @@ function _nodesCreator() {
   for (var i = 0; i < length; i++) {
     var obj = {};
     obj['id'] = CSVFormater.getTarget(i);
-    obj['group'] = Math.floor(Math.random(1,4)).toString();
+    obj['group'] = Math.floor(Math.random() * 5) + 1;
 
     nodes.push(obj);
   }
@@ -49,7 +49,10 @@ function _linksCreator() {
         obj['target'] = CSVFormater.getTarget(targetIdx);
         obj['value'] = colorHexa;
 
-        links.push(obj);
+        // We don't create links if there is no interaction (code #fff)
+        if (colorHexa != '#fff' || colorHexa == '') {
+          links.push(obj);
+        }
       } else {
         continue;
       }
@@ -65,23 +68,23 @@ function _colorPicker (value) {
 
   switch(value) {
     case 'OK':
-      color = '#00ff00'
+      color = '#00ff00';
       break;
 
     case 'Moyen':
-      color = '#ff9900'
+      color = '#ff9900';
       break;
 
     case 'Pas d\'interaction':
-      color = '#fff'
+      color = '#fff';
       break;
 
     case 'NOK':
-      color: '#ff0000'
+      color = '#ff0000';
       break;
 
     default:
-      color: '#f3f3f3'
+      color = '#f3f3f3';
       break;
   }
 
