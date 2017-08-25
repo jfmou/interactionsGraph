@@ -3,7 +3,7 @@ var CSVFormater = function (data) {
     return
   }
   this.rawData = data;
-  this.sourceData = data.slice(1, data.length - 6)// remove first and last fifth rows;
+  this.sourceData = data.slice(1, data.length)// remove first row;
   this.targetOrdered = data[0];
   this.targetOrdered.shift();
   this.sourceOrdered = [];
