@@ -3,6 +3,11 @@
   stroke-width: 1.5px;
 }
 
+
+.link {
+  fill: none;
+}
+
 body {
   height: 100vh;
 }
