@@ -36,7 +36,7 @@ d3.json("data.json", function(error, graph) {
     .data(nodes.filter(function(d) { return d.id; }))
     .enter().append("circle")
       .attr("class", "node")
-      .attr("r", 5)
+      .attr("r", 10)
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
           .on("start", dragstarted)
