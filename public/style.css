@@ -2,3 +2,12 @@
   stroke: #fff;
   stroke-width: 1.5px;
 }
+
+body {
+  height: 100vh;
+}
+
+svg {
+  width: 100%;
+  height: 100%
+}
