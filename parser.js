@@ -49,10 +49,8 @@ function _linksCreator() {
         obj['target'] = CSVFormater.getTarget(targetIdx);
         obj['value'] = colorHexa;
 
-        // We don't create links if there is no interaction (code #fff)
-        if (colorHexa != '#fff' || colorHexa == '') {
-          links.push(obj);
-        }
+
+       links.push(obj);
       } else {
         continue;
       }
@@ -76,7 +74,7 @@ function _colorPicker (value) {
       break;
 
     case 'Pas d\'interaction':
-      color = '#fff';
+      color = '#999';
       break;
 
     case 'NOK':
@@ -84,7 +82,7 @@ function _colorPicker (value) {
       break;
 
     default:
-      color = '#f3f3f3';
+      color = '#fff';
       break;
   }
 
