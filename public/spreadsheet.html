@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Spreadsheet</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link rel="stylesheet" href="css/spreadsheet.css">
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="form-team">
+            <h2>Teams</h2>
+            <ul class="teams">
+
+            </ul>
+            <a href="#" class="add-team">Add a new team...</a>
+            <div class="card-team hide">
+                <textarea placeholder="Enter a team name value..." class="textarea-card-team"></textarea>
+                <div class="control-panel">
+                    <input id="add-team-action" class="confirm" type="submit" value="Add">
+                    <a href="#" class="icon-close">X</a>
+                </div>
+            </div>
+            <div id="next" class="hide">
+                <input id="continue-action" class="confirm" type="submit" value="Continue">
+            </div>
+        </div>
+        <div id="spreadsheet">
+            <table>
+                <tr>
+                    <td>↓ Think its relationships with → are</td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="js/spreadsheet.js"></script>
+</body>
+</html>
