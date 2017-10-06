@@ -1,6 +1,6 @@
 ## Requirements
-- [ ] Red relationships between teams
-- [ ] Orange relationships between teams
+- [x] Red relationships between teams
+- [x] Orange relationships between teams
 - [ ] Most isolated teams
 - [ ] Different views about relationships
 
