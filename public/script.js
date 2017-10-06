@@ -9,7 +9,7 @@ var simulation = d3.forceSimulation()
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-d3.json("data.json", function(error, graph) {
+d3.json("miserables.json", function(error, graph) {
   if (error) throw error;
 
   var nodes = graph.nodes,
