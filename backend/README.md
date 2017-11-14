@@ -52,7 +52,7 @@ That's all for native installation step!
 
 Docker installation is very simple:
 
- * [Build](#Build) docker image
+ * [Build](#build) docker image
 
 
 ## Build
