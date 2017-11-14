@@ -1,7 +1,7 @@
 FROM python:3
 LABEL maintainer="Yannick Foeillet <bzhtux@gmail.com>"
 LABEL name="ig-backend-dev"
-LABEL version="0.0.1"
+LABEL version="0.0.2"
 
 RUN apt-get update \
     && echo '\nAPT::Install-Recommends "false";\nAPT::Install-Suggests "false";\n' >> /etc/apt/apt.conf \
@@ -18,7 +18,9 @@ RUN apt-get update \
 
 COPY . /opt/app/
 
-RUN pip install -r /opt/app/requirements.txt
+RUN pip install -r /opt/app/requirements.txt \
+    && rm -rf /opt/app/api/static/csv/* \
+    && rm -rf /opt/app/api/static/uploads/*
 
 COPY Dockerfile entrypoint.sh /etc/docker/
 COPY entrypoint.sh /

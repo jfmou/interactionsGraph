@@ -6,7 +6,8 @@ Backend is a python Flask application
 
 ```
 * Python (>= 3.4)
-* docker (only for dev purposes) 
+* docker (only for dev purposes)
+* ig-backend-dev:0.0.2
 ```
 
 ## Installation
@@ -20,7 +21,7 @@ If you already have cloned this repository just point it to poc-backend-python b
 
 ```
 bzhtux@localhost: ~# git fetch --all
-bzhtux@localhost: ~# git checkout poc-backend-python
+bzhtux@localhost: ~# git checkout ${current_branch}
 ```
 
 ### Native install
@@ -75,15 +76,23 @@ bzhtux@localhost: ~# make run
 Use `-ti` for interactive console:
 
 ```
-bzhtux@localhost: ~# docker run -ti --rm -p 5000:5000 ig-backend-dev:0.0.1 bash
+bzhtux@localhost: ~# docker run -ti --rm -p 5000:5000 ig-backend-dev:0.0.2 bash
 ```
 
 ## Usage
 
-You can call the backend API without any Auth like this curl command:
+You can call the backend API without any Auth.
+
+### GET json data collection from csv
 
 ```
-curl -sL -k http://0.0.0.0:5000/api/datas | jq
+bzhtux@localhost: ~# curl -sL -k http://0.0.0.0:5000/api/datas | jq
+```
+
+### POST new csv data collection
+
+```
+bzhtux@localhost: ~# curl -i -X POST -F csv_file=@/tmp/data.csv http://0.0.0.0:5000/api/uploads
 ```
 
 ## Development
@@ -91,34 +100,24 @@ curl -sL -k http://0.0.0.0:5000/api/datas | jq
 ### Organization
 
 ```
-bzhtux@localhost: ~# tree -I "__pycache__"
+bzhtux@localhost: ~# tree -d -I "__pycache__"
 .
-├── Makefile
-├── README.md
-├── __init__.py
 ├── api
-│   ├── __init__.py
-│   ├── commons.py
-│   ├── models.py
+│   ├── static
+│   │   ├── csv
+│   │   └── uploads
+│   │       └── datacsv
 │   └── views
-│       ├── __init__.py
-│       └── default.py
-├── data.csv
 ├── docker
-│   ├── Dockerfile
-│   ├── entrypoint.sh
-├── instance
-│   ├── dev.py
-│   ├── prod.py
-│   └── test.py
-├── requirements.txt
-└── run.py
+└── instance
 ```
 * **api** folder: all python files required by API
 * **instance** folder: configuration folder, each file for a dedicated env
 * **docker** folder: files required to build docker image (makefile copy required python files into docker directory before building the image)
 * **api/views** folder: really ??? Yes API views ('/api/blabla')
-* **requirements.txt** file: python dependancies
+* **api/static** folder: static files
+* **api/static/uploads** folder: upload dir
+* **api/static/csv** folder: csv files dir
 
 ### TODO
 

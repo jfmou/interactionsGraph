@@ -1,5 +1,6 @@
 import csv
-#import json
+import hashlib
+from functools import partial
 
 
 class Utils():
@@ -47,3 +48,12 @@ class Utils():
                         value = self.COLORS['DEFAULT']
                     links.append({"source": source, "target": target, "value": value})
         return links
+
+    def get_uploaded_file_hash(self, upload_path, uploaded_file):
+        hash_md5 = hashlib.md5()
+        with open("%s/%s" % (upload_path, uploaded_file), "rb") as file_fd:
+#            for chunk in iter(lambda: file_fd.read(4096), b""):
+#                hash_md5.update(chunk)
+            for buf in iter(partial(file_fd.read, 128), b''):
+                hash_md5.update(buf)
+        return hash_md5.hexdigest()
